@@ -10,6 +10,37 @@ default_dirs:
     - global: ~/.claude/commands/
 
 library:
-  skills: []
-  agents: []
-  prompts: []
+  skills:
+    - name: imac-claude-reference
+      description: "Device control patterns for mac-mini-agent (Steer, Drive, Listen, Direct) and the-library skill registry. Foundation for LATTICE OS device autonomy."
+      source: ~/LATTICE_DEV/.claude/skills/ imac-claude-reference/SKILL.md
+
+    - name: lattice-vault
+      description: "Obsidian vault ops and CES zone management for LATTICE knowledge plane. Print layout, audit, promote doctrine."
+      source: ~/LATTICE_DEV/LATTICE_FS/000_OS/Claude/skills/lattice-vault/SKILL.md
+
+    - name: steer
+      description: "macOS GUI automation CLI. Screenshots, clicks, typing, hotkeys, OCR, window management. Use for visual device control."
+      source: ~/lattice/repos/mac-mini-agent/.claude/skills/steer/SKILL.md
+
+    - name: drive
+      description: "Terminal automation CLI. tmux sessions, command execution, parallel fanout, process management. Use for CLI device control."
+      source: ~/lattice/repos/mac-mini-agent/.claude/skills/drive/SKILL.md
+
+  agents:
+    - name: listen-drive-and-steer
+      description: "System prompt for autonomous job execution. Combines steer + drive for full device control with job YAML tracking."
+      source: ~/lattice/repos/mac-mini-agent/.claude/agents/listen-drive-and-steer-system-prompt.md
+
+  prompts:
+    - name: install-agent-sandbox
+      description: "Bootstrap a new agent sandbox device with Homebrew, steer, drive, listen, and full verification suite."
+      source: ~/lattice/repos/mac-mini-agent/.claude/commands/install-agent-sandbox.md
+
+    - name: install-engineer-devbox
+      description: "Configure engineer machine with Direct client, justfile, and connectivity to sandbox."
+      source: ~/lattice/repos/mac-mini-agent/.claude/commands/install-engineer-devbox.md
+
+    - name: listen-drive-and-steer-user-prompt
+      description: "Execute a task using steer (GUI) and drive (terminal) to control the entire macOS device."
+      source: ~/lattice/repos/mac-mini-agent/.claude/commands/listen-drive-and-steer-user-prompt.md
